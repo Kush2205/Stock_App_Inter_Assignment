@@ -29,14 +29,14 @@ export default function Watchlist({ token }: { token: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const validateSymbol = (s: string) => /^[A-Z]{1,4}$/.test(s);
+  const validateSymbol = (s: string) => /^[A-Z]{1,5}$/.test(s);
 
   const addStock = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     const symbol = newSymbol.trim();
     if (!validateSymbol(symbol)) {
-      setError("Stock symbol must be 1-4 uppercase letters (A-Z)");
+      setError("Stock symbol must be 1-5 uppercase letters (A-Z)");
       return;
     }
     try {

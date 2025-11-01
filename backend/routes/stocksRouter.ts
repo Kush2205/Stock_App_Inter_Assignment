@@ -26,9 +26,9 @@ stocksRouter.post("/" , authMiddleware, async (req, res) => {
         if (!user) {
             return res.status(404).json({message: "User not found"});
         }
-        if (!/^[A-Z]{1,4}$/.test(normalizedSymbol)) {
+        if (!/^[A-Z]{1,5}$/.test(normalizedSymbol)) {
             return res.status(400).json({
-                message: "Stock symbol must be 1-4 uppercase letters",
+                message: "Stock symbol must be 1-5 uppercase letters",
                 errorCode: "INVALID_STOCK_SYMBOL"
             });
         }
